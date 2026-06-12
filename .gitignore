@@ -1,0 +1,5 @@
+#Secret Keys should go under this comment just for convinience 
+.env
+
+#Other programm/files should go under this comment
+test.py
