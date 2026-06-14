@@ -2,6 +2,7 @@ import sqlite3
 
 DB_FILE = 'database.db'
 
+# A function that will create our database if it does not exist
 def init_db():
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
@@ -20,7 +21,7 @@ def init_db():
     conn.close()
 
 init_db()
-
+# A function to update the database with the information we scraped
 def update_database(name, adress, phone_number, reviews, average, website):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()

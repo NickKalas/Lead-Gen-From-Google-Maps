@@ -1,40 +1,42 @@
+#Import all the needed libraries
 from playwright.sync_api import sync_playwright, TimeoutError
 from bs4 import BeautifulSoup
 from database import update_database
 import random
+
+#A function to keep everything tidied up, makes sure everything works and that we do not have any errors
 def get_info(page, name_xpath, address_xpath, website_xpath, phone_number_xpath, average_reviews_xpath, reviews_xpath, counter):
+    
     if page.locator(name_xpath).count() > 0:
         biz_name = page.locator(name_xpath).inner_text()
     else:
         print(f"Something went wrong with the name of business {counter}...")
         biz_name = "N/A"
 
-    # 3. Extract Address safely
     if page.locator(address_xpath).count() > 0:
         biz_adress = page.locator(address_xpath).first.inner_text()
     else:
         print(f"Something went wrong with the address of business {counter}...")
         biz_adress = "N/A"
 
-    # 4. Extract Website safely
     if page.locator(website_xpath).count() > 0:
-        # Pro Tip: Grabbing 'href' is more reliable than inner_text() for links
         biz_website = page.locator(website_xpath).inner_text()
     else:
         print(f"Something went wrong with the website of business {counter}...")
         biz_website = "N/A"
 
-    # 5. Extract Phone safely
     if page.locator(phone_number_xpath).count() > 0:
         biz_phone = page.locator(phone_number_xpath).first.inner_text()
     else:
         print(f"Something went wrong with the phone of business {counter}...")
         biz_phone = 1111
+
     if page.locator(average_reviews_xpath).count() > 0:
         biz_avr_reviews = page.locator(average_reviews_xpath).first.inner_text()
     else:
         print(f"Something went wrong with the review average of business {counter}...")
         biz_avr_reviews = "N/A"
+
     if page.locator(reviews_xpath).count() > 0:
         reviews = page.locator(reviews_xpath).first.inner_text()
     else:
@@ -44,19 +46,22 @@ def get_info(page, name_xpath, address_xpath, website_xpath, phone_number_xpath,
     return biz_name, biz_adress, biz_website, biz_phone, biz_avr_reviews, reviews
 
 def scrape(LINK, n_leads):
+    #We first launch a browser using chromium and then we create a new page
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
-        
+        # We find the reject all button and we press it
         accept_all = page.locator('//button[@jsname="tWT92d"]')
         page.goto(LINK)
         page.evaluate("window.scrollBy(0, 800);")
+        #After scrolling down to find the button we use the lib random to avoid bot detections
         page.wait_for_timeout(random.randint(0,1000))
         accept_all.first.click()
         page.wait_for_timeout(random.randint(7500,9000))
-        
+        # We create a list of all the listings
         listings = page.locator('//div[@role="article"]').all()
         if listings:
+            # We loop through all the listings scraping the information we want
             for listing in listings[:n_leads]:
                 
                 counter = 1
@@ -85,6 +90,7 @@ def scrape(LINK, n_leads):
             quit
 
 def make_link(query):
+    # Simply add to the search the query the user wants to scrape info from
     link_template = "https://www.google.com/maps/search/"
     
     query = query.replace(" ", "+")

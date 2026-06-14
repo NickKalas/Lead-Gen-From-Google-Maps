@@ -1,9 +1,10 @@
+# Import any libraries we need
 import streamlit as st
 import sqlite3
 import pandas as pd
 from main import scrape, make_link
 import time
-
+# We load the data from the database using pandas
 def load_data_from_db():
     try:
         conn = sqlite3.connect('database.db')
@@ -14,7 +15,7 @@ def load_data_from_db():
     except Exception as e:
         st.sidebar.warning(f"Database not loaded yet (Using fallback template): {e}")
         return pd.DataFrame() 
-
+# A function to keep everything tidy, it creates the layout of the streamlit dashboard
 def creating_the_page(db_df):
 
     if not db_df.empty:
@@ -88,7 +89,7 @@ def creating_the_page(db_df):
 if __name__ == "__main__":
     loading_msg = st.empty()
     loading_msg.write("Loading the data...")
-
+    # Get user input and get all the needed information for the functions we will use later
     query = st.text_input("What should the search query be? (e.g. Pizza, City)", value="Pizza, Katerini")
     n_leads = st.number_input("How many leads do you wanna scrape?", min_value=1, max_value=20, value=5)
     link = make_link(query)
@@ -98,7 +99,7 @@ if __name__ == "__main__":
     loading_msg.empty()
     run = st.button("Click me to start scraping!!!")
     creating_the_page(db_df)
-
+    # When the button is clicked we run this
     if run:
         time.sleep(0.5)
         scrape(link, n_leads)
