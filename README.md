@@ -1,84 +1,56 @@
 # 🏢 Lead Generator & Live Business Explorer
 
-A modern, automated pipeline engineered to extract local business leads directly from Google Maps and explore them via an interactive, live dashboard web application.
+This app acts like a digital scout, automating the tedious task of collecting local business leads.
 
-Built natively in Python using Playwright for programmatic browser automation, BeautifulSoup4 for structured content analysis, SQLite for asynchronous local data warehousing, and Streamlit for real-time visualization.
-🚀 Key Features
+When you submit a search query like "Pizza, London" the program handles everything in four quick steps:
 
-    Asynchronous Browser Automation: Employs Playwright to emulate human interaction, handle cookies/consent dialog overlays automatically, and sequentially navigate local data feeds.
+    **Scrapes**: It launches an automated browser to bypass cookie consent popups and scroll through local listings.
 
-    Anti-Bot Telemetry Mitigation: Utilizes jitter-randomized event timelines to bypass automation pattern signatures safely.
+    **Extracts**: It clicks each business card to gather its name, address, phone number, website, and review scores.
 
-    Robust DOM Extractors: Leverages advanced, fallback-supported multi-lingual XPath expressions to reliably pull entity names, structural addresses, digital contact nodes, review volumetric tallies, and mean rating averages.
+    **Stores**: It instantly saves this information into a local database.db file to prevent data loss.
 
-    State Isolation Engine: Isolated threaded database connections prevent race-condition write conflicts inside SQLite during asynchronous extraction runs.
+    **Displays**: It loads the data onto an interactive Streamlit dashboard for effortless profile browsing.
 
-    Live Metrics Explorer Dashboard: Features a Streamlit interface tracking active lead pipelines directly from disk, with elegant fallback layout modes if extraction queues are empty.
+## Table of contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-🛠️ System Architecture
+## Installation
 
-The pipeline is split into three core modules optimized for separation of concerns:
+To install and initialize the application environment, execute these four simple setup steps:
 
-├── app.py          # Frontend Layout Logic (Streamlit Dashboard & Inputs)
-├── main.py         # Automation Engine (Playwright Scraper & DOM Parsing)
-├── database.py     # Local Data Warehouse (SQLite Initializer & Writer)
-└── requirements.txt # Explicit Package Dependency Map
+    **Clone**: Download the repository source files locally using the git clone command in your terminal.
 
-📦 Prerequisites & Installation
-1. Clone the Project Assets
-Bash
+    **Environment**: Create and activate an isolated virtual Python environment (venv) to keep dependencies separated.
 
-git clone [https://github.com/yourusername/lead-generator.git](https://github.com/yourusername/lead-generator.git)
-cd lead-generator
+    **Packages**: Run pip install -r requirements.txt to automatically download Streamlit, Playwright, and BeautifulSoup.
 
-2. Establish a Virtual Environment & Synchronize Dependencies
-Bash
+    **Browsers**: Run playwright install chromium to provision the automated, standalone browser binaries required for scraping.
 
-# Create environment
-python -m venv lead_gen
+Once completed, type streamlit run app.py to boot up your dashboard interface instantly!
 
-# Activate environment (Windows)
-.lead_genScriptsactivate
+## Usage
 
-# Activate environment (Mac/Linux)
-source lead_gen/bin/activate
+To operate the pipeline and explore your leads, follow these four simple steps:
 
-# Install explicit distribution packages
-pip install -r requirements.txt
+    **Launch**: Boot up the dashboard interface by running streamlit run app.py in your terminal.
 
-3. Provision the Playwright Browser Binaries
+    **Configure**: Enter your target parameters (like "Burgers, Athens") and choose how many leads to collect.
 
-Playwright requires its standalone browser binaries to run securely. Download them to your environment with a single terminal instruction:
-Bash
+    **Extract**: Click the tracking action button to spin up the automated background browser and scrape data.
 
-playwright install chromium
+    **Explore**: Use the interactive dropdown menu to instantly view live, structured company profile cards straight from disk.
 
-🖥️ Usage Guide
+## Contributing
 
-To boot up the complete environment including the database routing engine, run the primary Streamlit application entry point:
-Bash
-
-streamlit run app.py
-
-How It Works:
-
-    Configure Target Parameter Profiles: Enter your localized search context query (e.g., Pizza, Katerini or Burgers, Washington) and set your target lead collection quotas directly inside the web interface.
-
-    Execute the Scraper: Click the "Click me to start scraping!!!" button. This automatically initializes a safe background worker instance via main.py.
-
-    Explore the Leads Warehouse: The dashboard automatically invalidates older state caches, pulls the live rows from database.db, and updates the interactive interactive lookup layout profiles on the fly.
-
-🗄️ Database Schema Details
-
-Data is stored persistently in an optimized SQLite layout matrix (users table):
-Column Name	Type	Key Constraint	Description
-id	INTEGER	PRIMARY KEY AUTOINCREMENT	Unique Identifier Node
-name	TEXT	NOT NULL UNIQUE	Unique Business Trading Title
-adress	TEXT	NOT NULL	Physical Geographic Location String
-phone_number	TEXT		Telephony Route Contact Value
-reviews	TEXT	NOT NULL	Aggregated Review Count Node
-average	TEXT	NOT NULL	Arithmetic Scoring Mean Value
-website	TEXT	NOT NULL	Core Web Resource Anchor Target
-🛡️ License
-
-Distributed under the MIT License. See LICENSE for more structural detail parameters.
+* **Open Source:** This project is open for improvement and welcoming to new ideas.
+* **Fork & Branch:** To contribute, simply fork the repository, set up a new feature branch, and implement your code updates.
+* **Pull Request:** Submit a clear pull request detailing your changes for a quick review and merge.
+  
+## License
+* **MIT License:** This pipeline is distributed completely free under the standard MIT License.
+* **Permissions:** You are fully allowed to modify, distribute, copy, or use this software for both personal and commercial automation ventures.
+* **Condition:** Just include the original copyright notice in any copies you distribute.
