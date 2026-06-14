@@ -56,6 +56,6 @@ To operate the pipeline and explore your leads, follow these four simple steps:
 * **Condition:** Just include the original copyright notice in any copies you distribute.
 
 ---
-⭐ Support the Project
-If you find this tool useful, please leave a star! It helps keep the project alive and lets me know what to work on next.
-🚀 Milestone: Once the repository hits 100 stars, I will release the source code for the built-in Proxy Server Integration to help bypass aggressive rate limits flawlessly!
+🌟 Support & Future Roadmap
+* Leave a Star if this helped you scale your lead generation!
+* 🎁 Goal: Complete Proxy Server code unlock at 100 Stars.
