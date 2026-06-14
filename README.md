@@ -4,13 +4,13 @@ This app acts like a digital scout, automating the tedious task of collecting lo
 
 When you submit a search query like "Pizza, London" the program handles everything in four quick steps:
 
-    *Scrapes: It launches an automated browser to bypass cookie consent popups and scroll through local listings.
+    Scrapes: It launches an automated browser to bypass cookie consent popups and scroll through local listings.
 
-    *Extracts: It clicks each business card to gather its name, address, phone number, website, and review scores.
+    Extracts: It clicks each business card to gather its name, address, phone number, website, and review scores.
 
-    *Stores: It instantly saves this information into a local database.db file to prevent data loss.
+    Stores: It instantly saves this information into a local database.db file to prevent data loss.
 
-    *Displays: It loads the data onto an interactive Streamlit dashboard for effortless profile browsing.
+    Displays: It loads the data onto an interactive Streamlit dashboard for effortless profile browsing.
 
 ## Table of contents
 - [Installation](#installation)
@@ -22,13 +22,13 @@ When you submit a search query like "Pizza, London" the program handles everythi
 
 To install and initialize the application environment, execute these four simple setup steps:
 
-    **Clone**: Download the repository source files locally using the git clone command in your terminal.
+    Clone: Download the repository source files locally using the git clone command in your terminal.
 
-    **Environment**: Create and activate an isolated virtual Python environment (venv) to keep dependencies separated.
+    Environment: Create and activate an isolated virtual Python environment (venv) to keep dependencies separated.
 
-    **Packages**: Run pip install -r requirements.txt to automatically download Streamlit, Playwright, and BeautifulSoup.
+    Packages: Run pip install -r requirements.txt to automatically download Streamlit, Playwright, and BeautifulSoup.
 
-    **Browsers**: Run playwright install chromium to provision the automated, standalone browser binaries required for scraping.
+    Browsers: Run playwright install chromium to provision the automated, standalone browser binaries required for scraping.
 
 Once completed, type streamlit run app.py to boot up your dashboard interface instantly!
 
@@ -36,13 +36,13 @@ Once completed, type streamlit run app.py to boot up your dashboard interface in
 
 To operate the pipeline and explore your leads, follow these four simple steps:
 
-    **Launch**: Boot up the dashboard interface by running streamlit run app.py in your terminal.
+      Launch: Boot up the dashboard interface by running streamlit run app.py in your terminal.
 
-    **Configure**: Enter your target parameters (like "Burgers, Athens") and choose how many leads to collect.
+      Configure: Enter your target parameters (like "Burgers, Athens") and choose how many leads to collect.
 
-    **Extract**: Click the tracking action button to spin up the automated background browser and scrape data.
+      Extract: Click the tracking action button to spin up the automated background browser and scrape data.
 
-    **Explore**: Use the interactive dropdown menu to instantly view live, structured company profile cards straight from disk.
+      Explore: Use the interactive dropdown menu to instantly view live, structured company profile cards straight from disk.
 
 ## Contributing
 
