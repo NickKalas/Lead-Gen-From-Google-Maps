@@ -89,7 +89,6 @@ if __name__ == "__main__":
     loading_msg = st.empty()
     loading_msg.write("Loading the data...")
 
-    # Replace terminal input() calls with clean text and number input fields inside app.py
     query = st.text_input("What should the search query be? (e.g. Pizza, City)", value="Pizza, Katerini")
     n_leads = st.number_input("How many leads do you wanna scrape?", min_value=1, max_value=20, value=5)
     link = make_link(query)
