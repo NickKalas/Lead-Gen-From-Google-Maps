@@ -1,20 +1,8 @@
-```text
-
-\# 🏢 Lead Generator \& Live Business Explorer
-
-
+# 🏢 Lead Generator \& Live Business Explorer 
 
 A modern, automated pipeline engineered to extract local business leads directly from Google Maps and explore them via an interactive, live dashboard web application. 
 
-
-
 Built natively in Python using \*\*Playwright\*\* for programmatic browser automation, \*\*BeautifulSoup4\*\* for structured content analysis, \*\*SQLite\*\* for asynchronous local data warehousing, and \*\*Streamlit\*\* for real-time visualization.
-
-
-
-\---
-
-
 
 \## 🚀 Key Features
 
