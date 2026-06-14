@@ -54,3 +54,8 @@ To operate the pipeline and explore your leads, follow these four simple steps:
 * **MIT License:** This pipeline is distributed completely free under the standard MIT License.
 * **Permissions:** You are fully allowed to modify, distribute, copy, or use this software for both personal and commercial automation ventures.
 * **Condition:** Just include the original copyright notice in any copies you distribute.
+
+---
+⭐ Support the Project
+If you find this tool useful, please leave a star! It helps keep the project alive and lets me know what to work on next.
+🚀 Milestone: Once the repository hits 100 stars, I will release the source code for the built-in Proxy Server Integration to help bypass aggressive rate limits flawlessly!
