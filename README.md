@@ -4,13 +4,13 @@ This app acts like a digital scout, automating the tedious task of collecting lo
 
 When you submit a search query like "Pizza, London" the program handles everything in four quick steps:
 
-    **Scrapes**: It launches an automated browser to bypass cookie consent popups and scroll through local listings.
+    *Scrapes: It launches an automated browser to bypass cookie consent popups and scroll through local listings.
 
-    **Extracts**: It clicks each business card to gather its name, address, phone number, website, and review scores.
+    *Extracts: It clicks each business card to gather its name, address, phone number, website, and review scores.
 
-    **Stores**: It instantly saves this information into a local database.db file to prevent data loss.
+    *Stores: It instantly saves this information into a local database.db file to prevent data loss.
 
-    **Displays**: It loads the data onto an interactive Streamlit dashboard for effortless profile browsing.
+    *Displays: It loads the data onto an interactive Streamlit dashboard for effortless profile browsing.
 
 ## Table of contents
 - [Installation](#installation)
